@@ -156,7 +156,7 @@ function startWebServer() {
   http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('No functions and features at this place...' + process.version);
-  }).listen(port, None);
+  }).listen(port, null);
   
   console.log('Server running to provide incoming network connetion for Bluemix at http://' + host + ':' + port + '/');
 
