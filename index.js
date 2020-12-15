@@ -151,12 +151,12 @@ function post(list_name, list_url, href, added_by, trackname, artists) {
 function startWebServer() {
   var http = require('http');
   var host = process.env.VCAP_APP_HOST || 'localhost';
-  var port = process.env.VCAP_APP_PORT || 1337;
+  var port = process.env.PORT || 5000;
 
   http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('No functions and features at this place...' + process.version);
-  }).listen(process.env.PORT || 5000);
+  }).listen(port, None);
   
   console.log('Server running to provide incoming network connetion for Bluemix at http://' + host + ':' + port + '/');
 
