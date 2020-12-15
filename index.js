@@ -115,7 +115,7 @@ function doFetchPlaylistTracks(offset) {
       for (var i in data.body.items) {
         date = new Date(data.body.items[i].added_at);
         if((lastDate === undefined) || (date > lastDate)) {
-          post(playlistName, playlistUrl, data.body.items[i].track.href,
+          post(playlistName, playlistUrl, data.body.items[i].track.href.replace("https://api.spotify.com/v1/tracks/", "https://open.spotify.com/track/"),
             data.body.items[i].added_by ? get_user(data.body.items[i].added_by.id) : 'Unknown',
             data.body.items[i].track.name,
             data.body.items[i].track.artists);
