@@ -1,8 +1,8 @@
 {
   "name": "Spotify playlis to slack",
   "description": "Show new playlist entries in a slack channel",
-  "website": "https://github.com/petterl/spotify-playlist-2-slack",
-  "repository": "https://github.com/petterl/spotify-playlist-2-slack",
+  "website": "https://github.com/maxisme/spotify-playlist-2-slack",
+  "repository": "https://github.com/maxisme/spotify-playlist-2-slack",
   "command": "node index.js",
   "env": {
     "SPOTIFY_CLIENT_ID": "",
