@@ -138,9 +138,8 @@ slack.onError = function (err) {
 };
 
 var slacker = slack.extend({
-  username: 'spotify-playlist',
-  icon_url: 'http://icons.iconarchive.com/icons/xenatt/the-circle/256/App-Spotify-icon.png',
-  unfurl_media : false
+  username: 'Playlist',
+  unfurl_media : true
 });
 
 function post(list_name, list_url, added_by, trackname, artists) {
