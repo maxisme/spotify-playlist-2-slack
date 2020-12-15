@@ -109,13 +109,13 @@ function get_user(id) {
 
 function doFetchPlaylistTracks(offset) {
   spotifyApi.getPlaylistTracks(spotifyUser, spotifyPlaylistId, { offset: offset,
-      fields: 'total,items(added_by.id,added_at,track(name,artists.name,album.name))'})
+      fields: 'total,items(added_by.id,added_at,track(name,href,artists.name,album.name))'})
     .then(function(data) {
       var date = 0;
       for (var i in data.body.items) {
         date = new Date(data.body.items[i].added_at);
         if((lastDate === undefined) || (date > lastDate)) {
-          post(playlistName, playlistUrl, 
+          post(playlistName, playlistUrl, data.body.items[i].track.href,
             data.body.items[i].added_by ? get_user(data.body.items[i].added_by.id) : 'Unknown',
             data.body.items[i].track.name,
             data.body.items[i].track.artists);
@@ -142,8 +142,8 @@ var slacker = slack.extend({
   unfurl_media : true
 });
 
-function post(list_name, list_url, added_by, trackname, artists) {
-  var text = '<'+list_url+'|*' + trackname+'* by '+artists[0].name+'>';
+function post(list_name, list_url, href, added_by, trackname, artists) {
+  var text = '<'+list_url+'|*' + trackname+'* by '+artists[0].name+'> '+href;
   console.log(text);
   slacker({text: text});
 }
