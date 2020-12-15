@@ -143,7 +143,7 @@ var slacker = slack.extend({
 });
 
 function post(list_name, list_url, href, added_by, trackname, artists) {
-  var text = '<'+list_url+'|*' + trackname+'* by '+artists[0].name+'> '+href;
+  var text = href + '\n<'+list_url+'|*' + trackname+'* by '+artists[0].name+'>';
   console.log(text);
   slacker({text: text});
 }
